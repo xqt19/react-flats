@@ -3,15 +3,21 @@ import React from 'react'
 class Flat extends React.Component{
   constructor(props){
     super(props)
+    this.state = {
+      name: `${this.props.name}`,
+      price: `${this.props.price}` + ` ${this.props.priceCurrency}`,
+      imageUrl: `${this.props.imageUrl}`
+    }
   }
+
   render(){
-    let url = 'https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat3.jpg'
-    let styles = {backgroundImage: `url(${url})`}
+    let styles = {backgroundImage: `url(${this.state.imageUrl})`}
     return(
       <div className="card" style={styles}>
-        <div className="card-category">150 EUR</div>
+        <h5>{this.state.imageUrl}</h5>
+        <div className="card-category">{this.state.price}</div>
         <div className="card-description">
-          <h2>Super 60m2 in trendy neighborhood!</h2>
+          <h2>{this.state.name}</h2>
         </div>
         <a className="card-link" href="#"></a>
       </div>
